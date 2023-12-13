@@ -8,9 +8,9 @@ import * as StatusStatus from "../../common/v1/status/status.pb"
 import * as fm from "../../fetch.pb"
 import * as HsecdbHsecdb from "../../resources/v1/nstore/hsecdb/hsecdb.pb"
 import * as MetricsdbMetricsdb from "../../resources/v1/nstore/metricsdb/metricsdb.pb"
-import * as NetdbCt-log from "../../resources/v1/nstore/netdb/ct-log.pb"
-import * as NetdbCt-state from "../../resources/v1/nstore/netdb/ct-state.pb"
-import * as NetdbNetflow-traffic from "../../resources/v1/nstore/netdb/netflow-traffic.pb"
+import * as NetdbCtlog from "../../resources/v1/nstore/netdb/ctlog.pb"
+import * as NetdbCtstate from "../../resources/v1/nstore/netdb/ctstate.pb"
+import * as NetdbNetflowTraffic from "../../resources/v1/nstore/netdb/netflowTraffic.pb"
 import * as TopologyNetwork from "../../resources/v1/topology/network.pb"
 import * as TopologyNode from "../../resources/v1/topology/node.pb"
 import * as TopologySubnet from "../../resources/v1/topology/subnet.pb"
@@ -115,14 +115,14 @@ export class TopologyAPI {
   static GetNodeHostMetrics(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<MetricsdbMetricsdb.HostMetricsResponse> {
     return fm.fetchReq<TopologyNode.NodeReq, MetricsdbMetricsdb.HostMetricsResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:host-metrics?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
   }
-  static GetNodeNetCtState(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbCt-state.ConntrackTableResponse> {
-    return fm.fetchReq<TopologyNode.NodeReq, NetdbCt-state.ConntrackTableResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-ct-state?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
+  static GetNodeNetCtState(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbCtstate.ConntrackTableResponse> {
+    return fm.fetchReq<TopologyNode.NodeReq, NetdbCtstate.ConntrackTableResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-ct-state?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
   }
-  static GetNodeNetCtLog(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbCt-log.ConntrackLogResponse> {
-    return fm.fetchReq<TopologyNode.NodeReq, NetdbCt-log.ConntrackLogResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-ct-log?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
+  static GetNodeNetCtLog(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbCtlog.ConntrackLogResponse> {
+    return fm.fetchReq<TopologyNode.NodeReq, NetdbCtlog.ConntrackLogResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-ct-log?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
   }
-  static GetNodeNetTrafficMetrics(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbNetflow-traffic.TrafficMetricsResponse> {
-    return fm.fetchReq<TopologyNode.NodeReq, NetdbNetflow-traffic.TrafficMetricsResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-traffic?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
+  static GetNodeNetTrafficMetrics(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbNetflowTraffic.TrafficMetricsResponse> {
+    return fm.fetchReq<TopologyNode.NodeReq, NetdbNetflowTraffic.TrafficMetricsResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-traffic?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
   }
   static GetNodeHostSecurityReport(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<HsecdbHsecdb.HostSecurityReportResponse> {
     return fm.fetchReq<TopologyNode.NodeReq, HsecdbHsecdb.HostSecurityReportResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:host-security?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})

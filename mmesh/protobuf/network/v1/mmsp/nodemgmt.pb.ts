@@ -6,9 +6,9 @@
 
 import * as HsecdbHsecdb from "../../../resources/v1/nstore/hsecdb/hsecdb.pb"
 import * as MetricsdbMetricsdb from "../../../resources/v1/nstore/metricsdb/metricsdb.pb"
-import * as NetdbCt-log from "../../../resources/v1/nstore/netdb/ct-log.pb"
-import * as NetdbCt-state from "../../../resources/v1/nstore/netdb/ct-state.pb"
-import * as NetdbNetflow-traffic from "../../../resources/v1/nstore/netdb/netflow-traffic.pb"
+import * as NetdbCtlog from "../../../resources/v1/nstore/netdb/ctlog.pb"
+import * as NetdbCtstate from "../../../resources/v1/nstore/netdb/ctstate.pb"
+import * as NetdbNetflowTraffic from "../../../resources/v1/nstore/netdb/netflowTraffic.pb"
 import * as NstoreNstore from "../../../resources/v1/nstore/nstore.pb"
 import * as TopologyNode from "../../../resources/v1/topology/node.pb"
 
@@ -43,11 +43,11 @@ export type NodeMgmtPDU = {
   hostMetricsRequest?: NstoreNstore.DataRequest
   hostMetricsResponse?: MetricsdbMetricsdb.HostMetricsResponse
   netCtStateRequest?: NstoreNstore.DataRequest
-  netCtStateResponse?: NetdbCt-state.ConntrackTableResponse
+  netCtStateResponse?: NetdbCtstate.ConntrackTableResponse
   netCtLogRequest?: NstoreNstore.DataRequest
-  netCtLogResponse?: NetdbCt-log.ConntrackLogResponse
+  netCtLogResponse?: NetdbCtlog.ConntrackLogResponse
   netTrafficMetricsRequest?: NstoreNstore.DataRequest
-  netTrafficMetricsResponse?: NetdbNetflow-traffic.TrafficMetricsResponse
+  netTrafficMetricsResponse?: NetdbNetflowTraffic.TrafficMetricsResponse
   hsecReportRequest?: NstoreNstore.DataRequest
   hsecReportResponse?: HsecdbHsecdb.HostSecurityReportResponse
 }
