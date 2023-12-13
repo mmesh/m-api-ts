@@ -4,19 +4,9 @@
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
 
-export enum TimeRange {
-  TTL_UNDEFINED = "TTL_UNDEFINED",
-  TTL_1H = "TTL_1H",
-  TTL_6H = "TTL_6H",
-  TTL_12H = "TTL_12H",
-  TTL_24H = "TTL_24H",
-  TTL_7D = "TTL_7D",
-  TTL_14D = "TTL_14D",
-  TTL_30D = "TTL_30D",
-  TTL_365D = "TTL_365D",
-}
+import * as NstoreNstore from "../nstore.pb"
 
-export enum MetricType {
+export enum HostMetricType {
   UNDEFINED = "UNDEFINED",
   NET_RX_BYTES = "NET_RX_BYTES",
   NET_TX_BYTES = "NET_TX_BYTES",
@@ -26,22 +16,14 @@ export enum MetricType {
   HOST_DISK_USAGE = "HOST_DISK_USAGE",
 }
 
-export type DataPoint = {
+export type HostMetricDataPoint = {
   timestamp?: string
-  timeRange?: TimeRange
-  metric?: MetricType
+  timeRange?: NstoreNstore.TimeRange
+  metric?: HostMetricType
   value?: number
 }
 
-export type MetricsRequest = {
-  accountID?: string
-  tenantID?: string
-  nodeID?: string
-  controllerID?: string
-  queryID?: string
-}
-
-export type NodeMetrics = {
+export type HostMetricsResponse = {
   accountID?: string
   tenantID?: string
   nodeID?: string
