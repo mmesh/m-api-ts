@@ -12,7 +12,6 @@ import * as NetdbCt-log from "../../resources/v1/nstore/netdb/ct-log.pb"
 import * as NetdbCt-state from "../../resources/v1/nstore/netdb/ct-state.pb"
 import * as NetdbNetflow-traffic from "../../resources/v1/nstore/netdb/netflow-traffic.pb"
 import * as TopologyNetwork from "../../resources/v1/topology/network.pb"
-import * as TopologyNode-instance from "../../resources/v1/topology/node-instance.pb"
 import * as TopologyNode from "../../resources/v1/topology/node.pb"
 import * as TopologySubnet from "../../resources/v1/topology/subnet.pb"
 import * as TopologyTopology from "../../resources/v1/topology/topology.pb"
@@ -71,20 +70,20 @@ export class TopologyAPI {
   static DeleteNetworkFilter(req: TopologySubnet.DeleteNetworkFilterRequest, initReq?: fm.InitReq): Promise<TopologySubnet.Policy> {
     return fm.fetchReq<TopologySubnet.DeleteNetworkFilterRequest, TopologySubnet.Policy>(`/api/v1/accounts/${req["subnetReq.accountID"]}/tenants/${req["subnetReq.tenantID"]}/networks/${req["subnetReq.netID"]}/subnets/${req["subnetReq.subnetID"]}/policy/${req["nfID"]}`, {...initReq, method: "DELETE"})
   }
-  static CreateGenericNode(req: TopologyNode.NewNodeRequest, initReq?: fm.InitReq): Promise<TopologyNode-instance.NodeInstance> {
-    return fm.fetchReq<TopologyNode.NewNodeRequest, TopologyNode-instance.NodeInstance>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes:new`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static CreateGenericNode(req: TopologyNode.NewNodeRequest, initReq?: fm.InitReq): Promise<TopologyNode.NodeInstance> {
+    return fm.fetchReq<TopologyNode.NewNodeRequest, TopologyNode.NodeInstance>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes:new`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static CreateKubernetesGateway(req: TopologyNode.NewNodeRequest, initReq?: fm.InitReq): Promise<TopologyNode-instance.NodeInstance> {
-    return fm.fetchReq<TopologyNode.NewNodeRequest, TopologyNode-instance.NodeInstance>(`/api.TopologyAPI/CreateKubernetesGateway`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static CreateKubernetesGateway(req: TopologyNode.NewNodeRequest, initReq?: fm.InitReq): Promise<TopologyNode.NodeInstance> {
+    return fm.fetchReq<TopologyNode.NewNodeRequest, TopologyNode.NodeInstance>(`/api.TopologyAPI/CreateKubernetesGateway`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static CreateKubernetesPod(req: TopologyNode.NewNodeRequest, initReq?: fm.InitReq): Promise<TopologyNode-instance.NodeInstance> {
-    return fm.fetchReq<TopologyNode.NewNodeRequest, TopologyNode-instance.NodeInstance>(`/api.TopologyAPI/CreateKubernetesPod`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static CreateKubernetesPod(req: TopologyNode.NewNodeRequest, initReq?: fm.InitReq): Promise<TopologyNode.NodeInstance> {
+    return fm.fetchReq<TopologyNode.NewNodeRequest, TopologyNode.NodeInstance>(`/api.TopologyAPI/CreateKubernetesPod`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static GetNodeInstance(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<TopologyNode-instance.NodeInstance> {
-    return fm.fetchReq<TopologyNode.NodeReq, TopologyNode-instance.NodeInstance>(`/api.TopologyAPI/GetNodeInstance`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static GetNodeInstance(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<TopologyNode.NodeInstance> {
+    return fm.fetchReq<TopologyNode.NodeReq, TopologyNode.NodeInstance>(`/api.TopologyAPI/GetNodeInstance`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static GetNodeGroupInstance(req: TopologyNode.NodeGroupReq, initReq?: fm.InitReq): Promise<TopologyNode-instance.NodeInstance> {
-    return fm.fetchReq<TopologyNode.NodeGroupReq, TopologyNode-instance.NodeInstance>(`/api.TopologyAPI/GetNodeGroupInstance`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static GetNodeGroupInstance(req: TopologyNode.NodeGroupReq, initReq?: fm.InitReq): Promise<TopologyNode.NodeInstance> {
+    return fm.fetchReq<TopologyNode.NodeGroupReq, TopologyNode.NodeInstance>(`/api.TopologyAPI/GetNodeGroupInstance`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static ListNodesByTenant(req: TopologyNode.ListNodesByTenantRequest, initReq?: fm.InitReq): Promise<TopologyNode.Nodes> {
     return fm.fetchReq<TopologyNode.ListNodesByTenantRequest, TopologyNode.Nodes>(`/api/v1/accounts/${req["tenant.accountID"]}/tenants/${req["tenant.tenantID"]}/nodes`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})

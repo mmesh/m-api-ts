@@ -5,7 +5,6 @@
 */
 
 import * as ResourceList from "../resource/list.pb"
-import * as TopologyNode-instance from "./node-instance.pb"
 import * as TopologyNode from "./node.pb"
 export type RoutingAccessTokenPayload = {
   locationID?: string
@@ -71,5 +70,5 @@ export type SetRouterCfgRequest = {
 
 export type RouterInstance = {
   router?: Router
-  config?: TopologyNode-instance.NodeInstanceConfig
+  config?: TopologyNode.NodeInstanceConfig
 }

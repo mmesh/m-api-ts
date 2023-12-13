@@ -188,3 +188,12 @@ export type EndpointRequest = {
   endpointID?: string
   IPv4?: string
 }
+
+export type NodeInstance = {
+  node?: Node
+  config?: NodeInstanceConfig
+}
+
+export type NodeInstanceConfig = {
+  YAML?: string
+}
