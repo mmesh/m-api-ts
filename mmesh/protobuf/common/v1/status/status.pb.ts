@@ -20,7 +20,3 @@ export type StatusResponse = {
   message?: string
   timestamp?: string
 }
-
-export type SearchResponse = {
-  result?: boolean
-}

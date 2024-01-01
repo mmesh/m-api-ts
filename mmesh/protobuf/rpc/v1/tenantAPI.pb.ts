@@ -4,7 +4,7 @@
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
 
-import * as StatusStatus from "../../common/v1/status/status.pb"
+import * as EmptyEmpty from "../../common/v1/empty/empty.pb"
 import * as fm from "../../fetch.pb"
 import * as TenantTenant from "../../resources/v1/tenant/tenant.pb"
 export class TenantAPI {
@@ -23,7 +23,7 @@ export class TenantAPI {
   static UpdateTenant(req: TenantTenant.UpdateTenantRequest, initReq?: fm.InitReq): Promise<TenantTenant.Tenant> {
     return fm.fetchReq<TenantTenant.UpdateTenantRequest, TenantTenant.Tenant>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}`, {...initReq, method: "PATCH", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteTenant(req: TenantTenant.TenantReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<TenantTenant.TenantReq, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}`, {...initReq, method: "DELETE"})
+  static DeleteTenant(req: TenantTenant.TenantReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<TenantTenant.TenantReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}`, {...initReq, method: "DELETE"})
   }
 }

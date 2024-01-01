@@ -23,6 +23,10 @@ export type HostMetricDataPoint = {
   value?: number
 }
 
+export type HostMetricsRequest = {
+  request?: NstoreNstore.DataRequest
+}
+
 export type HostMetricsResponse = {
   accountID?: string
   tenantID?: string

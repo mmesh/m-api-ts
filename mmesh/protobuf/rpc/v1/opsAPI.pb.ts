@@ -4,7 +4,7 @@
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
 
-import * as StatusStatus from "../../common/v1/status/status.pb"
+import * as EmptyEmpty from "../../common/v1/empty/empty.pb"
 import * as fm from "../../fetch.pb"
 import * as OpsOps from "../../resources/v1/ops/ops.pb"
 import * as OpsProject from "../../resources/v1/ops/project.pb"
@@ -25,8 +25,8 @@ export class OpsAPI {
   static SetProject(req: OpsProject.Project, initReq?: fm.InitReq): Promise<OpsProject.Project> {
     return fm.fetchReq<OpsProject.Project, OpsProject.Project>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}`, {...initReq, method: "PUT", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteProject(req: OpsProject.ProjectReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<OpsProject.ProjectReq, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}`, {...initReq, method: "DELETE"})
+  static DeleteProject(req: OpsProject.ProjectReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<OpsProject.ProjectReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}`, {...initReq, method: "DELETE"})
   }
   static CreateWorkflow(req: OpsWorkflow.Workflow, initReq?: fm.InitReq): Promise<OpsWorkflow.Workflow> {
     return fm.fetchReq<OpsWorkflow.Workflow, OpsWorkflow.Workflow>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}/workflows:new`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -40,11 +40,11 @@ export class OpsAPI {
   static SetWorkflow(req: OpsWorkflow.Workflow, initReq?: fm.InitReq): Promise<OpsWorkflow.Workflow> {
     return fm.fetchReq<OpsWorkflow.Workflow, OpsWorkflow.Workflow>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}/workflows/${req["workflowID"]}`, {...initReq, method: "PUT", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteWorkflow(req: OpsWorkflow.WorkflowReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<OpsWorkflow.WorkflowReq, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}/workflows/${req["workflowID"]}`, {...initReq, method: "DELETE"})
+  static DeleteWorkflow(req: OpsWorkflow.WorkflowReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<OpsWorkflow.WorkflowReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}/workflows/${req["workflowID"]}`, {...initReq, method: "DELETE"})
   }
-  static ActionWorkflow(req: OpsWorkflow.WorkflowAction, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<OpsWorkflow.WorkflowAction, StatusStatus.StatusResponse>(`/api.OpsAPI/ActionWorkflow`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static ActionWorkflow(req: OpsWorkflow.WorkflowAction, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<OpsWorkflow.WorkflowAction, EmptyEmpty.Empty>(`/api.OpsAPI/ActionWorkflow`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static ListTaskLogs(req: OpsWorkflow.ListTaskLogsRequest, initReq?: fm.InitReq): Promise<OpsWorkflow.TaskLogs> {
     return fm.fetchReq<OpsWorkflow.ListTaskLogsRequest, OpsWorkflow.TaskLogs>(`/api/v1/accounts/${req["workflow.accountID"]}/tenants/${req["workflow.tenantID"]}/projects/${req["workflow.projectID"]}/workflows/${req["workflow.workflowID"]}/tasklogs`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -52,7 +52,7 @@ export class OpsAPI {
   static GetTaskLog(req: OpsWorkflow.TaskLogReq, initReq?: fm.InitReq): Promise<OpsWorkflow.TaskLog> {
     return fm.fetchReq<OpsWorkflow.TaskLogReq, OpsWorkflow.TaskLog>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}/workflows/${req["workflowID"]}/tasklogs/${req["taskLogID"]}?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "projectID", "workflowID", "taskLogID"])}`, {...initReq, method: "GET"})
   }
-  static DeleteTaskLog(req: OpsWorkflow.TaskLogReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<OpsWorkflow.TaskLogReq, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}/workflows/${req["workflowID"]}/tasklogs/${req["taskLogID"]}`, {...initReq, method: "DELETE"})
+  static DeleteTaskLog(req: OpsWorkflow.TaskLogReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<OpsWorkflow.TaskLogReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/projects/${req["projectID"]}/workflows/${req["workflowID"]}/tasklogs/${req["taskLogID"]}`, {...initReq, method: "DELETE"})
   }
 }

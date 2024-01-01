@@ -9,7 +9,6 @@ import * as MetricsdbMetricsdb from "../../../resources/v1/nstore/metricsdb/metr
 import * as NetdbCtlog from "../../../resources/v1/nstore/netdb/ctlog.pb"
 import * as NetdbCtstate from "../../../resources/v1/nstore/netdb/ctstate.pb"
 import * as NetdbNetflowTraffic from "../../../resources/v1/nstore/netdb/netflowTraffic.pb"
-import * as NstoreNstore from "../../../resources/v1/nstore/nstore.pb"
 import * as TopologyNode from "../../../resources/v1/topology/node.pb"
 
 export enum NodeMgmtMsgType {
@@ -40,15 +39,15 @@ export type NodeMgmtPDU = {
   type?: NodeMgmtMsgType
   nodeReq?: TopologyNode.NodeReq
   nodeConfig?: NodeMgmtConfig
-  hostMetricsRequest?: NstoreNstore.DataRequest
+  hostMetricsRequest?: MetricsdbMetricsdb.HostMetricsRequest
   hostMetricsResponse?: MetricsdbMetricsdb.HostMetricsResponse
-  netCtStateRequest?: NstoreNstore.DataRequest
+  netCtStateRequest?: NetdbCtstate.ConntrackTableRequest
   netCtStateResponse?: NetdbCtstate.ConntrackTableResponse
-  netCtLogRequest?: NstoreNstore.DataRequest
+  netCtLogRequest?: NetdbCtlog.ConntrackLogRequest
   netCtLogResponse?: NetdbCtlog.ConntrackLogResponse
-  netTrafficMetricsRequest?: NstoreNstore.DataRequest
+  netTrafficMetricsRequest?: NetdbNetflowTraffic.TrafficMetricsRequest
   netTrafficMetricsResponse?: NetdbNetflowTraffic.TrafficMetricsResponse
-  hsecReportRequest?: NstoreNstore.DataRequest
+  hsecReportRequest?: HsecdbHsecdb.HostSecurityReportRequest
   hsecReportResponse?: HsecdbHsecdb.HostSecurityReportResponse
 }
 

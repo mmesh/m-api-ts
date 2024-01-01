@@ -5,6 +5,11 @@
 */
 
 import * as HsecReport from "../../hsec/report.pb"
+import * as NstoreNstore from "../nstore.pb"
+export type HostSecurityReportRequest = {
+  request?: NstoreNstore.DataRequest
+}
+
 export type HostSecurityReportResponse = {
   accountID?: string
   tenantID?: string

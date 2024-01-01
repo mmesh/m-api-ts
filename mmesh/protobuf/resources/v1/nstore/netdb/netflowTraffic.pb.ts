@@ -6,11 +6,24 @@
 
 import * as NstoreNstore from "../nstore.pb"
 import * as NetdbConnection from "./connection.pb"
+
+export enum TrafficQueryType {
+  UNKNOWN_QUERY = "UNKNOWN_QUERY",
+  TRAFFIC_BY_PROTOCOL = "TRAFFIC_BY_PROTOCOL",
+  TRAFFIC_BY_L5_PORT = "TRAFFIC_BY_L5_PORT",
+  TRAFFIC_BY_DIRECTION = "TRAFFIC_BY_DIRECTION",
+  TRAFFIC_TOP_TALKERS = "TRAFFIC_TOP_TALKERS",
+}
+
 export type NetFlowEntry = {
   timestamp?: string
-  timeRange?: NstoreNstore.TimeRange
   flow?: NetdbConnection.Flow
   traffic?: NetdbConnection.TrafficCounter
+}
+
+export type TrafficMetricsRequest = {
+  request?: NstoreNstore.DataRequest
+  type?: TrafficQueryType
 }
 
 export type TrafficMetricsResponse = {
@@ -18,10 +31,10 @@ export type TrafficMetricsResponse = {
   tenantID?: string
   nodeID?: string
   queryID?: string
-  byProtocol?: {[key: string]: TrafficByProtocol}
-  byL5Port?: {[key: string]: TrafficByL5Port}
-  byDirection?: {[key: string]: TrafficByDirection}
-  topTalkers?: {[key: string]: TopTalkers}
+  byProtocol?: TrafficByProtocol
+  byL5Port?: TrafficByL5Port
+  byDirection?: TrafficByDirection
+  topTalkers?: TopTalkers
   timestamp?: string
 }
 
@@ -49,6 +62,20 @@ export type TrafficByL5Port = {
   IMAPS?: TimeTrafficValue[]
   POP3?: TimeTrafficValue[]
   POP3S?: TimeTrafficValue[]
+  NTP?: TimeTrafficValue[]
+  SNMP?: TimeTrafficValue[]
+  BGP?: TimeTrafficValue[]
+  LDAP?: TimeTrafficValue[]
+  LDAPS?: TimeTrafficValue[]
+  MySQL?: TimeTrafficValue[]
+  PostgreSQL?: TimeTrafficValue[]
+  MSSQL?: TimeTrafficValue[]
+  Redis?: TimeTrafficValue[]
+  NFS?: TimeTrafficValue[]
+  SIP?: TimeTrafficValue[]
+  SIPTLS?: TimeTrafficValue[]
+  AMQP?: TimeTrafficValue[]
+  AMQPS?: TimeTrafficValue[]
 }
 
 export type TrafficByDirection = {
@@ -57,12 +84,13 @@ export type TrafficByDirection = {
 }
 
 export type TopTalkers = {
-  talkers?: Talker[]
+  src?: Talker[]
+  dst?: Talker[]
 }
 
 export type Talker = {
   addr?: string
-  traffic?: TrafficByDirection
+  bytes?: string
 }
 
 export type TimeTrafficValue = {

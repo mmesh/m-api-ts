@@ -6,7 +6,7 @@
 
 import * as DatetimeDatetime from "../../../common/v1/datetime/datetime.pb"
 import * as StatusStatus from "../../../common/v1/status/status.pb"
-import * as MetricsEvent from "../metrics/event.pb"
+import * as EventsMetric from "../events/metric.pb"
 import * as ResourceList from "../resource/list.pb"
 import * as TopologyNode from "../topology/node.pb"
 import * as OpsProject from "./project.pb"
@@ -42,7 +42,7 @@ export type Workflow = {
   notify?: Notify
   targets?: TopologyNode.NodeReq[]
   taskLogs?: TaskLog[]
-  eventMetrics?: MetricsEvent.EventMetrics
+  eventMetrics?: EventsMetric.EventMetrics
 }
 
 export type Workflows = {

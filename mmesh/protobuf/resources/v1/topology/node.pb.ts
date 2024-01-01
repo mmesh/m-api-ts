@@ -5,8 +5,7 @@
 */
 
 import * as DatetimeDatetime from "../../../common/v1/datetime/datetime.pb"
-import * as MetricsEvent from "../metrics/event.pb"
-import * as MetricsNode from "../metrics/node.pb"
+import * as EventsMetric from "../events/metric.pb"
 import * as ResourceList from "../resource/list.pb"
 import * as TenantTenant from "../tenant/tenant.pb"
 import * as TopologySubnet from "./subnet.pb"
@@ -82,7 +81,7 @@ export type Node = {
   cfg?: NodeCfg
   agent?: Agent
   endpoints?: {[key: string]: Endpoint}
-  eventMetrics?: MetricsEvent.EventMetrics
+  eventMetrics?: EventsMetric.EventMetrics
   type?: NodeType
   replicaSet?: boolean
   kubernetesAttrs?: KubernetesAttrs
@@ -151,7 +150,7 @@ export type Routes = {
 
 export type AgentMetrics = {
   lastUpdated?: string
-  hostMetrics?: MetricsNode.HostMetrics
+  hostMetrics?: HostMetrics
 }
 
 export type Endpoint = {
@@ -196,4 +195,16 @@ export type NodeInstance = {
 
 export type NodeInstanceConfig = {
   YAML?: string
+}
+
+export type HostMetrics = {
+  OS?: string
+  uptime?: string
+  loadAvg?: number
+  cpuUsage?: string
+  cpuPressure?: boolean
+  memoryUsage?: string
+  memoryPressure?: boolean
+  diskUsage?: string
+  diskPressure?: boolean
 }

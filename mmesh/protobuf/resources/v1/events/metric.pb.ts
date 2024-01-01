@@ -4,7 +4,7 @@
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
 
-import * as EventsEvent from "../events/event.pb"
+import * as EventsEvent from "./event.pb"
 export type EventMetrics = {
   successCount?: number
   failCount?: number

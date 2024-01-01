@@ -4,7 +4,7 @@
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
 
-import * as MetricsEvent from "../metrics/event.pb"
+import * as EventsMetric from "../events/metric.pb"
 import * as ResourceList from "../resource/list.pb"
 export type UserTokenRequest = {
   accountID?: string
@@ -33,7 +33,7 @@ export type User = {
   status?: UserStatus
   RBAC?: UserRBAC
   stats?: UserStats
-  eventMetrics?: MetricsEvent.EventMetrics
+  eventMetrics?: EventsMetric.EventMetrics
 }
 
 export type Users = {

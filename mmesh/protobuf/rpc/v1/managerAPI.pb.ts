@@ -5,7 +5,6 @@
 */
 
 import * as EmptyEmpty from "../../common/v1/empty/empty.pb"
-import * as StatusStatus from "../../common/v1/status/status.pb"
 import * as fm from "../../fetch.pb"
 import * as NacNac from "../../network/v1/nac/nac.pb"
 import * as NacNatprobe from "../../network/v1/nac/natprobe.pb"
@@ -37,8 +36,8 @@ export class ManagerAPI {
   static VerifyUserEmail(req: AuthSignin.VerifyUserEmailRequest, initReq?: fm.InitReq): Promise<AuthSignin.AuthenticationResponse> {
     return fm.fetchReq<AuthSignin.VerifyUserEmailRequest, AuthSignin.AuthenticationResponse>(`/api/v1/accounts/${req["accountID"]}/iam/users/${req["userID"]}:email`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static SendMail(req: MessagingMail.SendMailRequest, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<MessagingMail.SendMailRequest, StatusStatus.StatusResponse>(`/api/v1/mail`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static SendMail(req: MessagingMail.SendMailRequest, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<MessagingMail.SendMailRequest, EmptyEmpty.Empty>(`/api/v1/mail`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static ListWebhooks(req: WebhookWebhook.ListWebhooksRequest, initReq?: fm.InitReq): Promise<WebhookWebhook.Webhooks> {
     return fm.fetchReq<WebhookWebhook.ListWebhooksRequest, WebhookWebhook.Webhooks>(`/api.ManagerAPI/ListWebhooks`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -46,8 +45,8 @@ export class ManagerAPI {
   static GetWebhook(req: WebhookWebhook.Webhook, initReq?: fm.InitReq): Promise<WebhookWebhook.Webhook> {
     return fm.fetchReq<WebhookWebhook.Webhook, WebhookWebhook.Webhook>(`/api.ManagerAPI/GetWebhook`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteWebhook(req: WebhookWebhook.Webhook, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<WebhookWebhook.Webhook, StatusStatus.StatusResponse>(`/api.ManagerAPI/DeleteWebhook`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static DeleteWebhook(req: WebhookWebhook.Webhook, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<WebhookWebhook.Webhook, EmptyEmpty.Empty>(`/api.ManagerAPI/DeleteWebhook`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static CreateLocation(req: LocationLocation.NewLocationRequest, initReq?: fm.InitReq): Promise<LocationLocation.Location> {
     return fm.fetchReq<LocationLocation.NewLocationRequest, LocationLocation.Location>(`/api.ManagerAPI/CreateLocation`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -67,8 +66,8 @@ export class ManagerAPI {
   static UpdateLocation(req: LocationLocation.UpdateLocationRequest, initReq?: fm.InitReq): Promise<LocationLocation.Location> {
     return fm.fetchReq<LocationLocation.UpdateLocationRequest, LocationLocation.Location>(`/api.ManagerAPI/UpdateLocation`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteLocation(req: LocationLocation.LocationReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<LocationLocation.LocationReq, StatusStatus.StatusResponse>(`/api.ManagerAPI/DeleteLocation`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static DeleteLocation(req: LocationLocation.LocationReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<LocationLocation.LocationReq, EmptyEmpty.Empty>(`/api.ManagerAPI/DeleteLocation`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static SelectFederation(req: LocationLocation.Location, initReq?: fm.InitReq): Promise<ControllerController.FederationSelected> {
     return fm.fetchReq<LocationLocation.Location, ControllerController.FederationSelected>(`/api/v1/locations/${req["locationID"]}/federations:select?${fm.renderURLSearchParams(req, ["locationID"])}`, {...initReq, method: "GET"})
@@ -79,8 +78,8 @@ export class ManagerAPI {
   static GetFederation(req: ControllerController.Federation, initReq?: fm.InitReq): Promise<ControllerController.Federation> {
     return fm.fetchReq<ControllerController.Federation, ControllerController.Federation>(`/api.ManagerAPI/GetFederation`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteFederation(req: ControllerController.Federation, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<ControllerController.Federation, StatusStatus.StatusResponse>(`/api.ManagerAPI/DeleteFederation`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static DeleteFederation(req: ControllerController.Federation, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<ControllerController.Federation, EmptyEmpty.Empty>(`/api.ManagerAPI/DeleteFederation`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static ListControllers(req: ControllerController.Federation, initReq?: fm.InitReq): Promise<ControllerController.Controllers> {
     return fm.fetchReq<ControllerController.Federation, ControllerController.Controllers>(`/api.ManagerAPI/ListControllers`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -88,8 +87,8 @@ export class ManagerAPI {
   static GetController(req: ControllerController.Controller, initReq?: fm.InitReq): Promise<ControllerController.Controller> {
     return fm.fetchReq<ControllerController.Controller, ControllerController.Controller>(`/api.ManagerAPI/GetController`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteController(req: ControllerController.Controller, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<ControllerController.Controller, StatusStatus.StatusResponse>(`/api.ManagerAPI/DeleteController`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static DeleteController(req: ControllerController.Controller, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<ControllerController.Controller, EmptyEmpty.Empty>(`/api.ManagerAPI/DeleteController`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static RouterNATProbe(req: NacNatprobe.NATProbe, initReq?: fm.InitReq): Promise<NacNatprobe.NATProbe> {
     return fm.fetchReq<NacNatprobe.NATProbe, NacNatprobe.NATProbe>(`/api.ManagerAPI/RouterNATProbe`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -115,7 +114,7 @@ export class ManagerAPI {
   static SetRouterCfg(req: TopologyRouter.SetRouterCfgRequest, initReq?: fm.InitReq): Promise<TopologyRouter.Router> {
     return fm.fetchReq<TopologyRouter.SetRouterCfgRequest, TopologyRouter.Router>(`/api/v1/locations/${req["routerReq.locationID"]}/routers/${req["routerReq.routerID"]}:cfg`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteRouter(req: TopologyRouter.RouterReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<TopologyRouter.RouterReq, StatusStatus.StatusResponse>(`/api/v1/locations/${req["locationID"]}/routers/${req["routerID"]}`, {...initReq, method: "DELETE"})
+  static DeleteRouter(req: TopologyRouter.RouterReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<TopologyRouter.RouterReq, EmptyEmpty.Empty>(`/api/v1/locations/${req["locationID"]}/routers/${req["routerID"]}`, {...initReq, method: "DELETE"})
   }
 }

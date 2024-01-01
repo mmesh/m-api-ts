@@ -4,7 +4,7 @@
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
 
-import * as StatusStatus from "../../common/v1/status/status.pb"
+import * as EmptyEmpty from "../../common/v1/empty/empty.pb"
 import * as fm from "../../fetch.pb"
 import * as EventsAlert from "../../resources/v1/events/alert.pb"
 export class MonitoringAPI {
@@ -20,7 +20,7 @@ export class MonitoringAPI {
   static NewAlertComment(req: EventsAlert.AlertNewCommentRequest, initReq?: fm.InitReq): Promise<EventsAlert.Alert> {
     return fm.fetchReq<EventsAlert.AlertNewCommentRequest, EventsAlert.Alert>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/alerts/${req["alertID"]}:comment`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteAlert(req: EventsAlert.AlertReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<EventsAlert.AlertReq, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/alerts/${req["alertID"]}`, {...initReq, method: "DELETE"})
+  static DeleteAlert(req: EventsAlert.AlertReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<EventsAlert.AlertReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/alerts/${req["alertID"]}`, {...initReq, method: "DELETE"})
   }
 }

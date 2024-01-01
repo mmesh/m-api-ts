@@ -10,21 +10,9 @@ import * as HsecMisconf from "./misconf.pb"
 import * as HsecPackage from "./package.pb"
 import * as HsecSecret from "./secret.pb"
 import * as HsecVuln from "./vuln.pb"
-
-export enum ResultClass {
-  RESULT_CLASS_UNKNOWN = "RESULT_CLASS_UNKNOWN",
-  RESULT_CLASS_OS_PKGS = "RESULT_CLASS_OS_PKGS",
-  RESULT_CLASS_LANG_PKGS = "RESULT_CLASS_LANG_PKGS",
-  RESULT_CLASS_CONFIG = "RESULT_CLASS_CONFIG",
-  RESULT_CLASS_SECRET = "RESULT_CLASS_SECRET",
-  RESULT_CLASS_LICENSE = "RESULT_CLASS_LICENSE",
-  RESULT_CLASS_LICENSE_FILE = "RESULT_CLASS_LICENSE_FILE",
-  RESULT_CLASS_CUSTOM = "RESULT_CLASS_CUSTOM",
-}
-
 export type Result = {
   target?: string
-  class?: ResultClass
+  class?: string
   type?: string
   packages?: HsecPackage.Package[]
   vulnerabilities?: HsecVuln.DetectedVulnerability[]

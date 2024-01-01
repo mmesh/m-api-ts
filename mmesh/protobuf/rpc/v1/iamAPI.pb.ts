@@ -5,7 +5,6 @@
 */
 
 import * as EmptyEmpty from "../../common/v1/empty/empty.pb"
-import * as StatusStatus from "../../common/v1/status/status.pb"
 import * as fm from "../../fetch.pb"
 import * as IamPerms from "../../resources/v1/iam/perms.pb"
 import * as IamRbac from "../../resources/v1/iam/rbac.pb"
@@ -26,8 +25,8 @@ export class IAMAPI {
   static GetUser(req: IamUser.UserReq, initReq?: fm.InitReq): Promise<IamUser.User> {
     return fm.fetchReq<IamUser.UserReq, IamUser.User>(`/api/v1/accounts/${req["accountID"]}/iam/users/${req["userID"]}?${fm.renderURLSearchParams(req, ["accountID", "userID"])}`, {...initReq, method: "GET"})
   }
-  static DeleteUser(req: IamUser.UserReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<IamUser.UserReq, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}/iam/users/${req["userID"]}`, {...initReq, method: "DELETE"})
+  static DeleteUser(req: IamUser.UserReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<IamUser.UserReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/iam/users/${req["userID"]}`, {...initReq, method: "DELETE"})
   }
   static EnableUser(req: IamUser.UserReq, initReq?: fm.InitReq): Promise<IamUser.User> {
     return fm.fetchReq<IamUser.UserReq, IamUser.User>(`/api/v1/accounts/${req["accountID"]}/iam/users/${req["userID"]}:enable`, {...initReq, method: "PATCH", body: JSON.stringify(req, fm.replacer)})
@@ -50,8 +49,8 @@ export class IAMAPI {
   static SetSecurityGroup(req: IamRbac.SecurityGroup, initReq?: fm.InitReq): Promise<IamRbac.SecurityGroup> {
     return fm.fetchReq<IamRbac.SecurityGroup, IamRbac.SecurityGroup>(`/api/v1/accounts/${req["accountID"]}/iam/securityGroups/${req["securityGroupID"]}`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteSecurityGroup(req: IamRbac.SecurityGroup, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<IamRbac.SecurityGroup, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}/iam/securityGroups/${req["securityGroupID"]}`, {...initReq, method: "DELETE"})
+  static DeleteSecurityGroup(req: IamRbac.SecurityGroup, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<IamRbac.SecurityGroup, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/iam/securityGroups/${req["securityGroupID"]}`, {...initReq, method: "DELETE"})
   }
   static ListRoles(req: IamRbac.ListRolesRequest, initReq?: fm.InitReq): Promise<IamRbac.Roles> {
     return fm.fetchReq<IamRbac.ListRolesRequest, IamRbac.Roles>(`/api/v1/accounts/${req["accountID"]}/iam/roles`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -62,8 +61,8 @@ export class IAMAPI {
   static SetRole(req: IamRbac.Role, initReq?: fm.InitReq): Promise<IamRbac.Role> {
     return fm.fetchReq<IamRbac.Role, IamRbac.Role>(`/api/v1/accounts/${req["accountID"]}/iam/roles/${req["roleID"]}`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteRole(req: IamRbac.Role, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<IamRbac.Role, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}/iam/roles/${req["roleID"]}`, {...initReq, method: "DELETE"})
+  static DeleteRole(req: IamRbac.Role, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<IamRbac.Role, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/iam/roles/${req["roleID"]}`, {...initReq, method: "DELETE"})
   }
   static ListACLs(req: IamRbac.ListACLsRequest, initReq?: fm.InitReq): Promise<IamRbac.ACLs> {
     return fm.fetchReq<IamRbac.ListACLsRequest, IamRbac.ACLs>(`/api/v1/accounts/${req["accountID"]}/iam/acls`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -74,7 +73,7 @@ export class IAMAPI {
   static SetACL(req: IamRbac.ACL, initReq?: fm.InitReq): Promise<IamRbac.ACL> {
     return fm.fetchReq<IamRbac.ACL, IamRbac.ACL>(`/api/v1/accounts/${req["accountID"]}/iam/acls/${req["ACLID"]}`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteACL(req: IamRbac.ACL, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<IamRbac.ACL, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}/iam/acls/${req["ACLID"]}`, {...initReq, method: "DELETE"})
+  static DeleteACL(req: IamRbac.ACL, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<IamRbac.ACL, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/iam/acls/${req["ACLID"]}`, {...initReq, method: "DELETE"})
   }
 }

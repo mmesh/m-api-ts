@@ -25,18 +25,6 @@ export enum Severity {
   SEVERITY_CRITICAL = "SEVERITY_CRITICAL",
 }
 
-export type DetectedVulnerabilityVulnerability = {
-  title?: string
-  description?: string
-  severity?: string
-  cweIDs?: string[]
-  vendorSeverity?: {[key: string]: Severity}
-  CVSS?: {[key: string]: CVSS}
-  references?: string[]
-  publishedDate?: string
-  lastModifiedDate?: string
-}
-
 export type DetectedVulnerability = {
   vulnerabilityID?: string
   vendorIDs?: string[]
@@ -51,12 +39,25 @@ export type DetectedVulnerability = {
   primaryURL?: string
   pkgRef?: string
   dataSource?: DataSource
+  vulnerability?: Vulnerability
 }
 
 export type DataSource = {
   ID?: string
   name?: string
   URL?: string
+}
+
+export type Vulnerability = {
+  title?: string
+  description?: string
+  severity?: string
+  cweIDs?: string[]
+  vendorSeverity?: {[key: string]: Severity}
+  CVSS?: {[key: string]: CVSS}
+  references?: string[]
+  publishedDate?: string
+  lastModifiedDate?: string
 }
 
 export type CVSS = {

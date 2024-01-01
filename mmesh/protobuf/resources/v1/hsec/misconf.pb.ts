@@ -45,10 +45,10 @@ export type CauseMetadata = {
   startLine?: number
   endLine?: number
   code?: HsecCommon.Code
-  ocurrences?: Ocurrence[]
+  occurrences?: Occurrence[]
 }
 
-export type Ocurrence = {
+export type Occurrence = {
   resource?: string
   filename?: string
   location?: HsecCommon.Location

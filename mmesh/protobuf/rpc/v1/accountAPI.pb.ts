@@ -4,7 +4,7 @@
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
 
-import * as StatusStatus from "../../common/v1/status/status.pb"
+import * as EmptyEmpty from "../../common/v1/empty/empty.pb"
 import * as fm from "../../fetch.pb"
 import * as AccountAccount from "../../resources/v1/account/account.pb"
 export class AccountAPI {
@@ -17,11 +17,11 @@ export class AccountAPI {
   static GetAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<AccountAccount.Account> {
     return fm.fetchReq<AccountAccount.AccountReq, AccountAccount.Account>(`/api/v1/accounts/${req["accountID"]}?${fm.renderURLSearchParams(req, ["accountID"])}`, {...initReq, method: "GET"})
   }
-  static CancelAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<AccountAccount.AccountReq, StatusStatus.StatusResponse>(`/api/v1/accounts/${req["accountID"]}:cancel`, {...initReq, method: "PATCH"})
+  static CancelAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<AccountAccount.AccountReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}:cancel`, {...initReq, method: "PATCH"})
   }
-  static DeleteAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<StatusStatus.StatusResponse> {
-    return fm.fetchReq<AccountAccount.AccountReq, StatusStatus.StatusResponse>(`/api.AccountAPI/DeleteAccount`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static DeleteAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
+    return fm.fetchReq<AccountAccount.AccountReq, EmptyEmpty.Empty>(`/api.AccountAPI/DeleteAccount`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static SetAccountMetadata(req: AccountAccount.SetAccountMetadataRequest, initReq?: fm.InitReq): Promise<AccountAccount.Account> {
     return fm.fetchReq<AccountAccount.SetAccountMetadataRequest, AccountAccount.Account>(`/api/v1/accounts/${req["accountID"]}:metadata`, {...initReq, method: "PUT", body: JSON.stringify(req, fm.replacer)})
