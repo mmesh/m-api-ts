@@ -115,16 +115,16 @@ export class TopologyAPI {
   static GetNodeHostMetrics(req: MetricsdbMetricsdb.HostMetricsRequest, initReq?: fm.InitReq): Promise<MetricsdbMetricsdb.HostMetricsResponse> {
     return fm.fetchReq<MetricsdbMetricsdb.HostMetricsRequest, MetricsdbMetricsdb.HostMetricsResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:host-metrics?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
   }
-  static GetNodeNetCtState(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbCtstate.ConntrackTableResponse> {
-    return fm.fetchReq<TopologyNode.NodeReq, NetdbCtstate.ConntrackTableResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-ct-state?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
+  static GetNodeNetCtState(req: NetdbCtstate.ConntrackTableRequest, initReq?: fm.InitReq): Promise<NetdbCtstate.ConntrackTableResponse> {
+    return fm.fetchReq<NetdbCtstate.ConntrackTableRequest, NetdbCtstate.ConntrackTableResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:net-ct-state?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
   }
-  static GetNodeNetCtLog(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbCtlog.ConntrackLogResponse> {
-    return fm.fetchReq<TopologyNode.NodeReq, NetdbCtlog.ConntrackLogResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-ct-log?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
+  static GetNodeNetCtLog(req: NetdbCtlog.ConntrackLogRequest, initReq?: fm.InitReq): Promise<NetdbCtlog.ConntrackLogResponse> {
+    return fm.fetchReq<NetdbCtlog.ConntrackLogRequest, NetdbCtlog.ConntrackLogResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:net-ct-log?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
   }
-  static GetNodeNetTrafficMetrics(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbNetflowTraffic.TrafficMetricsResponse> {
-    return fm.fetchReq<TopologyNode.NodeReq, NetdbNetflowTraffic.TrafficMetricsResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-traffic?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
+  static GetNodeNetTrafficMetrics(req: NetdbNetflowTraffic.TrafficMetricsRequest, initReq?: fm.InitReq): Promise<NetdbNetflowTraffic.TrafficMetricsResponse> {
+    return fm.fetchReq<NetdbNetflowTraffic.TrafficMetricsRequest, NetdbNetflowTraffic.TrafficMetricsResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:net-traffic?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
   }
-  static GetNodeHostSecurityReport(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<HsecdbHsecdb.HostSecurityReportResponse> {
-    return fm.fetchReq<TopologyNode.NodeReq, HsecdbHsecdb.HostSecurityReportResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:host-security?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
+  static GetNodeHostSecurityReport(req: HsecdbHsecdb.HostSecurityReportRequest, initReq?: fm.InitReq): Promise<HsecdbHsecdb.HostSecurityReportResponse> {
+    return fm.fetchReq<HsecdbHsecdb.HostSecurityReportRequest, HsecdbHsecdb.HostSecurityReportResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:host-security?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
   }
 }
