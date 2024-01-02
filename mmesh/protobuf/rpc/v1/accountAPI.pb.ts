@@ -17,11 +17,11 @@ export class AccountAPI {
   static GetAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<AccountAccount.Account> {
     return fm.fetchReq<AccountAccount.AccountReq, AccountAccount.Account>(`/api/v1/accounts/${req["accountID"]}?${fm.renderURLSearchParams(req, ["accountID"])}`, {...initReq, method: "GET"})
   }
-  static CancelAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<AccountAccount.AccountReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}:cancel`, {...initReq, method: "PATCH"})
+  static CancelAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<AccountAccount.AccountReq, EmptyEmpty.Response>(`/api/v1/accounts/${req["accountID"]}:cancel`, {...initReq, method: "PATCH"})
   }
-  static DeleteAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<AccountAccount.AccountReq, EmptyEmpty.Empty>(`/api.AccountAPI/DeleteAccount`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static DeleteAccount(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<AccountAccount.AccountReq, EmptyEmpty.Response>(`/api.AccountAPI/DeleteAccount`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static SetAccountMetadata(req: AccountAccount.SetAccountMetadataRequest, initReq?: fm.InitReq): Promise<AccountAccount.Account> {
     return fm.fetchReq<AccountAccount.SetAccountMetadataRequest, AccountAccount.Account>(`/api/v1/accounts/${req["accountID"]}:metadata`, {...initReq, method: "PUT", body: JSON.stringify(req, fm.replacer)})

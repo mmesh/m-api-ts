@@ -3,5 +3,8 @@
 /*
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
-export type Empty = {
+export type Request = {
+}
+
+export type Response = {
 }

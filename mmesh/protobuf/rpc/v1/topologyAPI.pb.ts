@@ -34,8 +34,8 @@ export class TopologyAPI {
   static UpdateNetwork(req: TopologyNetwork.UpdateNetworkRequest, initReq?: fm.InitReq): Promise<TopologyNetwork.Network> {
     return fm.fetchReq<TopologyNetwork.UpdateNetworkRequest, TopologyNetwork.Network>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/networks/${req["netID"]}`, {...initReq, method: "PATCH", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteNetwork(req: TopologyNetwork.NetworkReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<TopologyNetwork.NetworkReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/networks/${req["netID"]}`, {...initReq, method: "DELETE"})
+  static DeleteNetwork(req: TopologyNetwork.NetworkReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<TopologyNetwork.NetworkReq, EmptyEmpty.Response>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/networks/${req["netID"]}`, {...initReq, method: "DELETE"})
   }
   static CreateSubnet(req: TopologySubnet.NewSubnetRequest, initReq?: fm.InitReq): Promise<TopologySubnet.Subnet> {
     return fm.fetchReq<TopologySubnet.NewSubnetRequest, TopologySubnet.Subnet>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/networks/${req["netID"]}/subnets:new`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -49,8 +49,8 @@ export class TopologyAPI {
   static UpdateSubnet(req: TopologySubnet.UpdateSubnetRequest, initReq?: fm.InitReq): Promise<TopologySubnet.Subnet> {
     return fm.fetchReq<TopologySubnet.UpdateSubnetRequest, TopologySubnet.Subnet>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/networks/${req["netID"]}/subnets/${req["subnetID"]}`, {...initReq, method: "PATCH", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteSubnet(req: TopologySubnet.SubnetReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<TopologySubnet.SubnetReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/networks/${req["netID"]}/subnets/${req["subnetID"]}`, {...initReq, method: "DELETE"})
+  static DeleteSubnet(req: TopologySubnet.SubnetReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<TopologySubnet.SubnetReq, EmptyEmpty.Response>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/networks/${req["netID"]}/subnets/${req["subnetID"]}`, {...initReq, method: "DELETE"})
   }
   static RemoveSubnetIPAMEntry(req: TopologySubnet.RemoveSubnetIPAMEntryRequest, initReq?: fm.InitReq): Promise<TopologySubnet.Subnet> {
     return fm.fetchReq<TopologySubnet.RemoveSubnetIPAMEntryRequest, TopologySubnet.Subnet>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/networks/${req["netID"]}/subnets/${req["subnetID"]}:ipam-entry`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
@@ -103,14 +103,14 @@ export class TopologyAPI {
   static UpdateNodeManagement(req: TopologyNode.UpdateNodeManagementRequest, initReq?: fm.InitReq): Promise<TopologyNode.Node> {
     return fm.fetchReq<TopologyNode.UpdateNodeManagementRequest, TopologyNode.Node>(`/api/v1/accounts/${req["nodeReq.accountID"]}/tenants/${req["nodeReq.tenantID"]}/nodes/${req["nodeReq.nodeID"]}:management`, {...initReq, method: "PATCH", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteNode(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<TopologyNode.NodeReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}`, {...initReq, method: "DELETE"})
+  static DeleteNode(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<TopologyNode.NodeReq, EmptyEmpty.Response>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}`, {...initReq, method: "DELETE"})
   }
-  static DeleteNodeGroup(req: TopologyNode.NodeGroupReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<TopologyNode.NodeGroupReq, EmptyEmpty.Empty>(`/api.TopologyAPI/DeleteNodeGroup`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static DeleteNodeGroup(req: TopologyNode.NodeGroupReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<TopologyNode.NodeGroupReq, EmptyEmpty.Response>(`/api.TopologyAPI/DeleteNodeGroup`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteNetworkEndpoint(req: TopologyNode.EndpointRequest, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<TopologyNode.EndpointRequest, EmptyEmpty.Empty>(`/api.TopologyAPI/DeleteNetworkEndpoint`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static DeleteNetworkEndpoint(req: TopologyNode.EndpointRequest, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<TopologyNode.EndpointRequest, EmptyEmpty.Response>(`/api.TopologyAPI/DeleteNetworkEndpoint`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static GetNodeHostMetrics(req: MetricsdbMetricsdb.HostMetricsRequest, initReq?: fm.InitReq): Promise<MetricsdbMetricsdb.HostMetricsResponse> {
     return fm.fetchReq<MetricsdbMetricsdb.HostMetricsRequest, MetricsdbMetricsdb.HostMetricsResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:host-metrics?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})

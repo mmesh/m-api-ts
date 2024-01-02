@@ -10,8 +10,8 @@ import * as AccountAccount from "../../resources/v1/account/account.pb"
 import * as ControllerController from "../../resources/v1/controller/controller.pb"
 import * as TopologyNode from "../../resources/v1/topology/node.pb"
 export class ControllerAPI {
-  static SetupAccount(req: AccountAccount.SetupAccountRequest, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<AccountAccount.SetupAccountRequest, EmptyEmpty.Empty>(`/api.ControllerAPI/SetupAccount`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
+  static SetupAccount(req: AccountAccount.SetupAccountRequest, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<AccountAccount.SetupAccountRequest, EmptyEmpty.Response>(`/api.ControllerAPI/SetupAccount`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
   static GetAccountUsage(req: AccountAccount.AccountReq, initReq?: fm.InitReq): Promise<AccountAccount.Usage> {
     return fm.fetchReq<AccountAccount.AccountReq, AccountAccount.Usage>(`/api/v1/accounts/${req["accountID"]}:usage?${fm.renderURLSearchParams(req, ["accountID"])}`, {...initReq, method: "GET"})

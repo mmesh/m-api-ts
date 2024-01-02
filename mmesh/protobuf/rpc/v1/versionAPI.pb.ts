@@ -8,7 +8,7 @@ import * as EmptyEmpty from "../../common/v1/empty/empty.pb"
 import * as VersionVersion from "../../common/v1/version/version.pb"
 import * as fm from "../../fetch.pb"
 export class VersionAPI {
-  static Version(req: EmptyEmpty.Empty, initReq?: fm.InitReq): Promise<VersionVersion.VersionResponse> {
-    return fm.fetchReq<EmptyEmpty.Empty, VersionVersion.VersionResponse>(`/version?${fm.renderURLSearchParams(req, [])}`, {...initReq, method: "GET"})
+  static Version(req: EmptyEmpty.Request, initReq?: fm.InitReq): Promise<VersionVersion.VersionResponse> {
+    return fm.fetchReq<EmptyEmpty.Request, VersionVersion.VersionResponse>(`/version?${fm.renderURLSearchParams(req, [])}`, {...initReq, method: "GET"})
   }
 }

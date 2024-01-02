@@ -23,7 +23,7 @@ export class TenantAPI {
   static UpdateTenant(req: TenantTenant.UpdateTenantRequest, initReq?: fm.InitReq): Promise<TenantTenant.Tenant> {
     return fm.fetchReq<TenantTenant.UpdateTenantRequest, TenantTenant.Tenant>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}`, {...initReq, method: "PATCH", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteTenant(req: TenantTenant.TenantReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<TenantTenant.TenantReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}`, {...initReq, method: "DELETE"})
+  static DeleteTenant(req: TenantTenant.TenantReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<TenantTenant.TenantReq, EmptyEmpty.Response>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}`, {...initReq, method: "DELETE"})
   }
 }

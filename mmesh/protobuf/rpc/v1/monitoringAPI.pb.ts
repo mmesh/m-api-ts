@@ -20,7 +20,7 @@ export class MonitoringAPI {
   static NewAlertComment(req: EventsAlert.AlertNewCommentRequest, initReq?: fm.InitReq): Promise<EventsAlert.Alert> {
     return fm.fetchReq<EventsAlert.AlertNewCommentRequest, EventsAlert.Alert>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/alerts/${req["alertID"]}:comment`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static DeleteAlert(req: EventsAlert.AlertReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
-    return fm.fetchReq<EventsAlert.AlertReq, EmptyEmpty.Empty>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/alerts/${req["alertID"]}`, {...initReq, method: "DELETE"})
+  static DeleteAlert(req: EventsAlert.AlertReq, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
+    return fm.fetchReq<EventsAlert.AlertReq, EmptyEmpty.Response>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/alerts/${req["alertID"]}`, {...initReq, method: "DELETE"})
   }
 }
