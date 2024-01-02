@@ -6,11 +6,6 @@
 
 import * as EmptyEmpty from "../../common/v1/empty/empty.pb"
 import * as fm from "../../fetch.pb"
-import * as HsecdbHsecdb from "../../resources/v1/nstore/hsecdb/hsecdb.pb"
-import * as MetricsdbMetricsdb from "../../resources/v1/nstore/metricsdb/metricsdb.pb"
-import * as NetdbCtlog from "../../resources/v1/nstore/netdb/ctlog.pb"
-import * as NetdbCtstate from "../../resources/v1/nstore/netdb/ctstate.pb"
-import * as NetdbNetflowTraffic from "../../resources/v1/nstore/netdb/netflowTraffic.pb"
 import * as TopologyNetwork from "../../resources/v1/topology/network.pb"
 import * as TopologyNode from "../../resources/v1/topology/node.pb"
 import * as TopologySubnet from "../../resources/v1/topology/subnet.pb"
@@ -111,20 +106,5 @@ export class TopologyAPI {
   }
   static DeleteNetworkEndpoint(req: TopologyNode.EndpointRequest, initReq?: fm.InitReq): Promise<EmptyEmpty.Response> {
     return fm.fetchReq<TopologyNode.EndpointRequest, EmptyEmpty.Response>(`/api.TopologyAPI/DeleteNetworkEndpoint`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
-  }
-  static GetNodeHostMetrics(req: MetricsdbMetricsdb.HostMetricsRequest, initReq?: fm.InitReq): Promise<MetricsdbMetricsdb.HostMetricsResponse> {
-    return fm.fetchReq<MetricsdbMetricsdb.HostMetricsRequest, MetricsdbMetricsdb.HostMetricsResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:host-metrics?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
-  }
-  static GetNodeNetCtState(req: NetdbCtstate.ConntrackTableRequest, initReq?: fm.InitReq): Promise<NetdbCtstate.ConntrackTableResponse> {
-    return fm.fetchReq<NetdbCtstate.ConntrackTableRequest, NetdbCtstate.ConntrackTableResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:net-ct-state?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
-  }
-  static GetNodeNetCtLog(req: NetdbCtlog.ConntrackLogRequest, initReq?: fm.InitReq): Promise<NetdbCtlog.ConntrackLogResponse> {
-    return fm.fetchReq<NetdbCtlog.ConntrackLogRequest, NetdbCtlog.ConntrackLogResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:net-ct-log?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
-  }
-  static GetNodeNetTrafficMetrics(req: NetdbNetflowTraffic.TrafficMetricsRequest, initReq?: fm.InitReq): Promise<NetdbNetflowTraffic.TrafficMetricsResponse> {
-    return fm.fetchReq<NetdbNetflowTraffic.TrafficMetricsRequest, NetdbNetflowTraffic.TrafficMetricsResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:net-traffic?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
-  }
-  static GetNodeHostSecurityReport(req: HsecdbHsecdb.HostSecurityReportRequest, initReq?: fm.InitReq): Promise<HsecdbHsecdb.HostSecurityReportResponse> {
-    return fm.fetchReq<HsecdbHsecdb.HostSecurityReportRequest, HsecdbHsecdb.HostSecurityReportResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:host-security?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
   }
 }
