@@ -112,8 +112,8 @@ export class TopologyAPI {
   static DeleteNetworkEndpoint(req: TopologyNode.EndpointRequest, initReq?: fm.InitReq): Promise<EmptyEmpty.Empty> {
     return fm.fetchReq<TopologyNode.EndpointRequest, EmptyEmpty.Empty>(`/api.TopologyAPI/DeleteNetworkEndpoint`, {...initReq, method: "POST", body: JSON.stringify(req, fm.replacer)})
   }
-  static GetNodeHostMetrics(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<MetricsdbMetricsdb.HostMetricsResponse> {
-    return fm.fetchReq<TopologyNode.NodeReq, MetricsdbMetricsdb.HostMetricsResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:host-metrics?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})
+  static GetNodeHostMetrics(req: MetricsdbMetricsdb.HostMetricsRequest, initReq?: fm.InitReq): Promise<MetricsdbMetricsdb.HostMetricsResponse> {
+    return fm.fetchReq<MetricsdbMetricsdb.HostMetricsRequest, MetricsdbMetricsdb.HostMetricsResponse>(`/api/v1/accounts/${req["request.accountID"]}/tenants/${req["request.tenantID"]}/nodes/${req["request.nodeID"]}:host-metrics?${fm.renderURLSearchParams(req, ["request.accountID", "request.tenantID", "request.nodeID"])}`, {...initReq, method: "GET"})
   }
   static GetNodeNetCtState(req: TopologyNode.NodeReq, initReq?: fm.InitReq): Promise<NetdbCtstate.ConntrackTableResponse> {
     return fm.fetchReq<TopologyNode.NodeReq, NetdbCtstate.ConntrackTableResponse>(`/api/v1/accounts/${req["accountID"]}/tenants/${req["tenantID"]}/nodes/${req["nodeID"]}:net-ct-state?${fm.renderURLSearchParams(req, ["accountID", "tenantID", "nodeID"])}`, {...initReq, method: "GET"})

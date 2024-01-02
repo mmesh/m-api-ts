@@ -25,6 +25,8 @@ export type HostMetricDataPoint = {
 
 export type HostMetricsRequest = {
   request?: NstoreNstore.DataRequest
+  timeRange?: NstoreNstore.TimeRange
+  metric?: HostMetricType
 }
 
 export type HostMetricsResponse = {
