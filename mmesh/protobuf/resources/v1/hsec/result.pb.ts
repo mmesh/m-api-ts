@@ -14,6 +14,7 @@ export type Result = {
   target?: string
   class?: string
   type?: string
+  scannedPackages?: number
   packages?: HsecPackage.Package[]
   vulnerabilities?: HsecVuln.DetectedVulnerability[]
   misconfSummary?: HsecMisconf.MisconfSummary
