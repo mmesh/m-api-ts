@@ -11,7 +11,6 @@ export type Chunk = {
   chunkSize?: string
   chunkChecksum?: Uint8Array
   data?: Uint8Array
-  chunkNumber?: string
   isLastChunk?: boolean
   payloadChecksum?: Uint8Array
 }
