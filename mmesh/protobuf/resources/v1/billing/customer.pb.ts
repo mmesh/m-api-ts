@@ -3,8 +3,6 @@
 /*
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
-
-import * as ResourceList from "../resource/list.pb"
 export type CustomerPortalRequest = {
   accountID?: string
   customerID?: string
@@ -27,20 +25,10 @@ export type Customer = {
   currency?: string
   balance?: string
   delinquent?: boolean
-  hostedInvoiceURL?: string
   liveMode?: boolean
   stripeTestClockID?: string
   creationDate?: string
   lastModified?: string
-}
-
-export type Customers = {
-  meta?: ResourceList.ListResponse
-  customers?: Customer[]
-}
-
-export type ListCustomersRequest = {
-  meta?: ResourceList.ListRequest
 }
 
 export type Address = {

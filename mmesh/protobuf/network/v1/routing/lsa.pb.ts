@@ -17,7 +17,6 @@ export enum LSAType {
 export type Status = {
   disabled?: boolean
   deleted?: boolean
-  overLimit?: boolean
 }
 
 export type LSA = {

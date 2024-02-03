@@ -80,8 +80,7 @@ export type Status = {
 }
 
 export type Service = {
-  subscription?: BillingSubscription.Subscription
-  isServiceProvider?: boolean
+  subscriptions?: {[key: string]: BillingSubscription.Subscription}
   suspended?: boolean
   canceled?: boolean
   cancelationDate?: string
@@ -89,7 +88,6 @@ export type Service = {
 
 export type Usage = {
   lastUpdated?: string
-  limit?: Limit
   tenants?: number
   networks?: number
   subnets?: number
@@ -100,14 +98,10 @@ export type Usage = {
   securityGroups?: number
   roles?: number
   ACLs?: number
+  admUsers?: number
+  IAPUsers?: number
   projects?: number
   workflows?: number
-}
-
-export type Limit = {
-  overLimit?: boolean
-  limitReachedDate?: string
-  lastWarningDate?: string
 }
 
 export type Stats = {

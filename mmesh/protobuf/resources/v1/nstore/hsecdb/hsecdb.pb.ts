@@ -4,11 +4,21 @@
 * This file is a generated Typescript file for GRPC Gateway, DO NOT MODIFY
 */
 
-import * as BlobBlob from "../../../../common/v1/blob/blob.pb"
 import * as HsecReport from "../../hsec/report.pb"
 import * as NstoreNstore from "../nstore.pb"
+
+export enum ReportQueryType {
+  REPORT_UNSPECIFIED = "REPORT_UNSPECIFIED",
+  REPORT_OS_PKGS = "REPORT_OS_PKGS",
+  REPORT_VULNERABILITIES = "REPORT_VULNERABILITIES",
+  REPORT_MISCONFIGS = "REPORT_MISCONFIGS",
+  REPORT_SECRETS = "REPORT_SECRETS",
+  REPORT_LICENSES = "REPORT_LICENSES",
+}
+
 export type HostSecurityReportRequest = {
   request?: NstoreNstore.DataRequest
+  type?: ReportQueryType
 }
 
 export type HostSecurityReportResponse = {
@@ -17,6 +27,5 @@ export type HostSecurityReportResponse = {
   nodeID?: string
   queryID?: string
   report?: HsecReport.Report
-  reportChunk?: BlobBlob.Chunk
   timestamp?: string
 }

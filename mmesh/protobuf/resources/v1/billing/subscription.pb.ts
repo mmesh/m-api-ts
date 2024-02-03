@@ -18,15 +18,10 @@ export enum SubscriptionStatus {
 
 export type Subscription = {
   accountID?: string
-  subscriptionID?: string
   serviceID?: string
-  pricingPlanID?: string
-  productID?: string
-  priceID?: string
-  quantity?: string
+  serviceProviderID?: string
   stripeCustomerID?: string
-  stripeProductID?: string
-  stripePriceID?: string
+  stripeCustomerEmail?: string
   stripeSubscriptionID?: string
   defaultStripePaymentMethodID?: string
   automaticTax?: boolean
@@ -45,6 +40,7 @@ export type Subscription = {
   latestStripeHostedInvoiceURL?: string
   latestStripeInvoicePaymentIntentStatus?: string
   status?: SubscriptionStatus
+  items?: SubscriptionItem[]
 }
 
 export type Discount = {
@@ -55,8 +51,8 @@ export type Discount = {
   end?: string
 }
 
-export type ApplyPromotionRequest = {
-  accountID?: string
-  stripeSubscriptionID?: string
-  promotionCode?: string
+export type SubscriptionItem = {
+  itemID?: string
+  priceID?: string
+  quantity?: string
 }

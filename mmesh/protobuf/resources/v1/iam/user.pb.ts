@@ -34,6 +34,8 @@ export type User = {
   RBAC?: UserRBAC
   stats?: UserStats
   eventMetrics?: EventsMetric.EventMetrics
+  admUser?: FeatureUser
+  IAPUser?: FeatureUser
 }
 
 export type Users = {
@@ -48,6 +50,10 @@ export type ListUsersRequest = {
 
 export type UserStatus = {
   enabled?: boolean
+}
+
+export type FeatureUser = {
+  active?: boolean
 }
 
 export type UserRBAC = {
